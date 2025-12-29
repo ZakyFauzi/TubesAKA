@@ -8,7 +8,6 @@ import sys
 
 st.set_page_config(
     page_title="Analisis Kompleksitas Algoritma - Dot Product",
-    page_icon="📊",
     layout="wide",
     initial_sidebar_state="expanded"
 )
@@ -218,8 +217,7 @@ def measure_execution_time(func, *args):
 
 st.markdown("""
 <div class="main-header">
-    <h1>📊 Analisis Kompleksitas Algoritma</h1>
-    <p><strong>Dot Product: Perbandingan Algoritma Iteratif vs Rekursif</strong></p>
+    <h1>Analisis Perbandingan Kompleksitas Waktu Asimtotik Algoritma Iteratif dan Rekursif pada Operasi Dot Product</h1>
 </div>
 """, unsafe_allow_html=True)
 
@@ -480,19 +478,15 @@ def dot_product_recursive(vector_a, vector_b, n):
                 st.markdown("### 📋 Tabel Perbandingan")
                 
                 comparison_data = {
-                    "Metrik": ["Hasil Dot Product", "Waktu Eksekusi (ms)", "Hasil Valid"],
-                    "Iteratif": [f"{result_iter:,.2f}", f"{time_iter:.4f}", "✅"],
-                    "Rekursif": [f"{result_recur:,.2f}", f"{time_recur:.4f}", "✅"],
+                    "Metrik": ["Hasil Dot Product", "Waktu Eksekusi (ms)"],
+                    "Iteratif": [f"{result_iter:,.2f}", f"{time_iter:.4f}"],
+                    "Rekursif": [f"{result_recur:,.2f}", f"{time_recur:.4f}"],
                 }
                 
                 df_comparison = pd.DataFrame(comparison_data)
                 st.dataframe(df_comparison, use_container_width=True, hide_index=True)
                 
-                # Validasi hasil
-                if abs(result_iter - result_recur) < 1e-9:
-                    st.success("✅ **Validasi Berhasil**: Kedua algoritma menghasilkan nilai yang sama!")
-                else:
-                    st.error("❌ **Validasi Gagal**: Hasil kedua algoritma berbeda!")
+
 
 with tab3:
     st.markdown("## 📈 Benchmark Lengkap & Visualisasi Grafik")
