@@ -57,7 +57,6 @@ Dependencies yang dibutuhkan:
 Jalankan aplikasi Streamlit:
 
 ```bash
-cd "c:\ZAKY\s1-telu\sem3\algorithm complexity analysis\TubesAKA"
 streamlit run app.py
 ```
 
