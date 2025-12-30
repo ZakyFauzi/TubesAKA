@@ -491,17 +491,6 @@ def dot_product_recursive(vector_a, vector_b, n):
 with tab3:
     st.markdown("## 📈 Benchmark Lengkap & Visualisasi Grafik")
     
-    st.markdown("""
-    <div class="info-card">
-        <h4>ℹ️ Tentang Benchmark</h4>
-        <p>
-            Benchmark ini akan menjalankan kedua algoritma pada berbagai ukuran input 
-            dan mengukur waktu eksekusi masing-masing. Hasil akan divisualisasikan 
-            dalam bentuk grafik garis untuk memudahkan analisis perbandingan.
-        </p>
-    </div>
-    """, unsafe_allow_html=True)
-    
     # Konfigurasi benchmark
     st.markdown("### ⚙️ Konfigurasi Benchmark")
     
