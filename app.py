@@ -222,11 +222,11 @@ st.markdown("""
 """, unsafe_allow_html=True)
 
 with st.sidebar:
-    st.markdown("## ⚙️ Konfigurasi")
+    st.markdown("## Konfigurasi")
     st.markdown("---")
     
     # Input ukuran vektor
-    st.markdown("### 📏 Ukuran Vektor (n)")
+    st.markdown("### Ukuran Vektor (n)")
     n_size = st.number_input(
         "Masukkan ukuran vektor:",
         min_value=1,
@@ -239,14 +239,14 @@ with st.sidebar:
     st.markdown("---")
     
     # Rentang nilai random
-    st.markdown("### 🎲 Rentang Nilai Random")
+    st.markdown("### Rentang Nilai Random")
     min_val = st.number_input("Nilai Minimum:", value=-100, step=1)
     max_val = st.number_input("Nilai Maksimum:", value=100, step=1)
     
     st.markdown("---")
     
     # Set recursion limit
-    st.markdown("### 🔧 Batas Rekursi")
+    st.markdown("### Batas Rekursi")
     recursion_limit = st.number_input(
         "Recursion Limit:",
         min_value=1000,
@@ -256,7 +256,7 @@ with st.sidebar:
         help="Batas maksimum kedalaman rekursi Python"
     )
     sys.setrecursionlimit(recursion_limit)
-    st.caption(f"⚠️ Current limit: {recursion_limit}")
+    st.caption(f"Current limit: {recursion_limit}")
 
 tab1, tab2, tab3, tab4 = st.tabs([
     "📖 Studi Kasus", 
