@@ -1,95 +1,36 @@
 # Analisis Perbandingan Kompleksitas Waktu Asimtotik Algoritma Iteratif dan Rekursif pada Operasi Dot Product
 
-## 📋 Deskripsi
+## Abstrak
 
-Proyek ini merupakan Tugas Besar untuk Mata Kuliah **Analisis Kompleksitas Algoritma** yang bertujuan untuk membandingkan efisiensi algoritma **Dot Product** dalam dua versi: **Iteratif** dan **Rekursif**. 
+Proyek ini menyajikan analisis komparatif terhadap algoritma iteratif dan rekursif untuk operasi dot product. Penelitian berfokus pada analisis kompleksitas waktu asimtotik, pengukuran performa praktis, dan pertimbangan implementasi dalam konteks komputasi Neural Network. Aplikasi web interaktif berbasis Streamlit menyediakan kemampuan visualisasi dan benchmarking untuk tujuan edukatif.
 
-Aplikasi web interaktif ini dibangun menggunakan **Streamlit** dan menyediakan analisis mendalam tentang kompleksitas waktu asimtotik, visualisasi perbandingan performa, dan studi kasus implementasi dot product dalam konteks Neural Network.
+**Kata Kunci:** Analisis Kompleksitas Algoritma, Dot Product, Algoritma Iteratif, Algoritma Rekursif, Perbandingan Performa, Neural Networks
 
-## 🎯 Tujuan Pembelajaran
+---
 
-1. Memahami perbedaan kompleksitas waktu antara algoritma iteratif dan rekursif
-2. Menganalisis efisiensi algoritma melalui pengukuran running time
-3. Memvisualisasikan perbandingan performa pada berbagai ukuran input
-4. Memahami keterbatasan pendekatan rekursif pada data berskala besar
+## 1. Pendahuluan
 
-## ✨ Fitur
+### 1.1 Latar Belakang
 
-- **4 Tab Interaktif:**
-  - 📖 **Studi Kasus**: Penjelasan dot product dan relevansinya dalam Neural Network
-  - 🧮 **Perbandingan Algoritma**: Eksekusi dan perbandingan langsung kedua algoritma
-  - 📈 **Benchmark & Grafik**: Visualisasi performa pada berbagai ukuran input
-  - 📚 **Analisis Kompleksitas**: Penjelasan detail tentang kompleksitas asimtotik O(n)
+Pemahaman kompleksitas algoritma merupakan fundamental dalam ilmu komputer dan rekayasa perangkat lunak. Proyek ini mengkaji karakteristik performa dari dua paradigma pemrograman—iterasi dan rekursi—melalui komputasi dot product, operasi kritis dalam arsitektur neural network dan aplikasi aljabar linear.
 
-- **Fitur Utama:**
-  - Generate vektor random dengan ukuran custom (1-10,000)
-  - Pengukuran waktu eksekusi real-time
-  - Grafik interaktif perbandingan performa (line chart & bar chart)
-  - Error handling untuk RecursionError
-  - Analisis kompleksitas waktu dan ruang
-  - Konfigurasi recursion limit
+### 1.2 Tujuan
 
-## 🚀 Instalasi
+Tujuan utama dari studi ini adalah:
 
-### Prasyarat
-- Python 3.8 atau lebih tinggi
-- pip (Python package manager)
+1. Mengimplementasikan dan menganalisis algoritma dot product menggunakan pendekatan iteratif dan rekursif
+2. Menentukan kompleksitas waktu asimtotik dari setiap implementasi
+3. Mengukur dan membandingkan performa runtime pada berbagai ukuran input
+4. Memvisualisasikan perbedaan performa melalui benchmarking komprehensif
+5. Mengidentifikasi keterbatasan praktis dan memberikan rekomendasi implementasi
 
-### Langkah Instalasi
+---
 
-1. **Clone atau download repository ini**
+## 2. Metodologi
 
-2. **Install dependencies:**
-```bash
-pip install -r requirements.txt
-```
+### 2.1 Implementasi Algoritma
 
-Dependencies yang dibutuhkan:
-- `streamlit` - Framework web aplikasi
-- `plotly` - Library visualisasi interaktif
-- `pandas` - Manipulasi data
-- `numpy` - Operasi numerik
-
-## 📖 Cara Menjalankan
-
-### Streamlit Web App
-
-Jalankan aplikasi Streamlit:
-
-```bash
-streamlit run app.py
-```
-
-atau:
-
-```bash
-python -m streamlit run app.py
-```
-
-Aplikasi akan berjalan di `http://localhost:8501`
-
-### Jupyter Notebook
-
-Buka file `dot_product_analysis.ipynb` dengan Jupyter Notebook atau JupyterLab:
-
-```bash
-jupyter notebook dot_product_analysis.ipynb
-```
-
-## 📁 Struktur Proyek
-
-```
-TubesAKA/
-├── app.py                          # Aplikasi Streamlit utama
-├── dot_product_analysis.ipynb      # Jupyter Notebook version
-├── requirements.txt                # Python dependencies
-├── README.md                       # Dokumentasi proyek
-└── deskripsi tubes-TELU.pdf       # Deskripsi tugas
-```
-
-## 🧮 Algoritma
-
-### 1. Dot Product Iteratif
+#### Algoritma Iteratif
 
 ```python
 def dot_product_iterative(vector_a: list, vector_b: list) -> float:
@@ -100,11 +41,11 @@ def dot_product_iterative(vector_a: list, vector_b: list) -> float:
     return result
 ```
 
-**Kompleksitas:**
-- Waktu: **O(n)**
-- Ruang: **O(1)**
+**Analisis Kompleksitas:**
+- Kompleksitas Waktu: O(n)
+- Kompleksitas Ruang: O(1)
 
-### 2. Dot Product Rekursif
+#### Algoritma Rekursif
 
 ```python
 def dot_product_recursive(vector_a: list, vector_b: list, n: int) -> float:
@@ -113,47 +54,208 @@ def dot_product_recursive(vector_a: list, vector_b: list, n: int) -> float:
     return (vector_a[n-1] * vector_b[n-1]) + dot_product_recursive(vector_a, vector_b, n-1)
 ```
 
-**Kompleksitas:**
-- Waktu: **O(n)**
-- Ruang: **O(n)** (call stack)
+**Analisis Kompleksitas:**
+- Kompleksitas Waktu: O(n)
+- Kompleksitas Ruang: O(n) - call stack
 
-## 📊 Hasil Analisis
+**Relasi Rekurensi:**
+```
+T(n) = T(n-1) + c
+T(0) = c
+⟹ T(n) = nc = O(n)
+```
 
-### Kesimpulan Utama
+### 2.2 Tools dan Teknologi
 
-1. **Kompleksitas Waktu:** Kedua algoritma memiliki kompleksitas waktu O(n) yang sama secara asimtotik
-2. **Kompleksitas Ruang:** Iteratif lebih efisien (O(1)) dibanding rekursif (O(n))
-3. **Performa Praktis:** Algoritma iteratif **lebih cepat** dalam praktiknya karena:
-   - Tidak ada overhead pemanggilan fungsi
-   - Akses memori lebih efisien
-   - Tidak ada risiko stack overflow
-4. **Keterbatasan Rekursif:** Python memiliki batas kedalaman rekursi default (~1000), yang membatasi ukuran input yang dapat diproses
+- **Python 3.8+**: Bahasa pemrograman utama
+- **Streamlit**: Framework aplikasi web untuk visualisasi interaktif
+- **Plotly**: Library visualisasi data interaktif
+- **Pandas**: Manipulasi dan analisis data
+- **NumPy**: Komputasi numerik
+- **Matplotlib**: Plotting (versi Jupyter Notebook)
 
-### Rekomendasi
+### 2.3 Konfigurasi Eksperimen
 
-Untuk operasi **Dot Product** dan operasi vektor lainnya:
-- ✅ **Gunakan pendekatan iteratif** untuk skalabilitas dan efisiensi
-- ✅ Gunakan library teroptimasi seperti **NumPy** untuk performa maksimal
-- ❌ Hindari pendekatan rekursif untuk data berskala besar
+- Ukuran input: 10, 50, 100, 250, 500, 750, 1000, 1500, 2000, 2500, 3000
+- Pengulangan per ukuran: 3 kali (rata-rata)
+- Rentang nilai acak: [-100, 100]
+- Python recursion limit: 15,000
 
-## 🎓 Konteks Pembelajaran
+---
 
-### Studi Kasus: Neural Network
+## 3. Instalasi dan Penggunaan
 
-Dalam **Artificial Neural Network (ANN)**, setiap neuron melakukan operasi dot product antara input vector dan weight vector:
+### 3.1 Prasyarat
 
-$$z = \sum_{i=1}^{n} x_i \cdot w_i = \vec{x} \cdot \vec{w}$$
+- Python 3.8 atau lebih tinggi
+- pip (Python package manager)
+
+### 3.2 Instalasi Dependencies
+
+```bash
+pip install -r requirements.txt
+```
+
+Paket yang dibutuhkan:
+- `streamlit` - Framework aplikasi web
+- `plotly` - Library visualisasi interaktif
+- `pandas` - Toolkit manipulasi data
+- `numpy` - Library komputasi numerik
+
+### 3.3 Menjalankan Aplikasi
+
+**Streamlit Web Application:**
+
+```bash
+streamlit run app.py
+```
+
+Atau menggunakan:
+
+```bash
+python -m streamlit run app.py
+```
+
+Aplikasi dapat diakses di `http://localhost:8501`
+
+**Jupyter Notebook:**
+
+```bash
+jupyter notebook dot_product_analysis.ipynb
+```
+
+---
+
+## 4. Struktur Proyek
+
+```
+TubesAKA/
+├── app.py                                  # Aplikasi Streamlit utama
+├── dot_product_analysis.ipynb              # Analisis Jupyter Notebook
+├── requirements.txt                        # Python dependencies
+├── README.md                               # Dokumentasi proyek
+├── Laporan Tugas Besar AKA.pdf             # Laporan teknis (PDF)
+├── Laporan Tugas Besar AKA.docx            # Laporan teknis (DOCX)
+└── deskripsi tubes-TELU.pdf               # Spesifikasi tugas
+```
+
+---
+
+## 5. Fitur Aplikasi
+
+### 5.1 Aplikasi Web Streamlit
+
+Aplikasi terdiri dari 4 modul utama:
+
+1. **Studi Kasus**: Latar belakang teoritis dot product dan relevansinya pada Neural Network
+2. **Perbandingan Algoritma**: Generasi vektor interaktif, pengukuran performa real-time, perbandingan hasil
+3. **Benchmarking & Visualisasi**: Benchmarking otomatis, grafik interaktif, analisis statistik
+4. **Analisis Kompleksitas**: Analisis asimtotik detail, solusi relasi rekurensi, tabel perbandingan
+
+### 5.2 Jupyter Notebook
+
+- Implementasi step-by-step dengan dokumentasi lengkap
+- Validasi algoritma dengan test cases
+- Benchmarking performa
+- Visualisasi data menggunakan Matplotlib
+- Analisis statistik dan kesimpulan
+
+---
+
+## 6. Hasil Analisis
+
+### 6.1 Perbandingan Kompleksitas
+
+| Aspek | Iteratif | Rekursif |
+|-------|----------|----------|
+| Kompleksitas Waktu | O(n) | O(n) |
+| Kompleksitas Ruang | O(1) | O(n) |
+| Overhead Function Call | Minimal | Tinggi |
+| Risiko Stack Overflow | Tidak Ada | Ada |
+| Skalabilitas | Sangat Baik | Terbatas |
+
+### 6.2 Temuan Utama
+
+1. **Ekuivalensi Asimtotik**: Kedua algoritma memiliki kompleksitas waktu O(n)
+2. **Efisiensi Ruang**: Pendekatan iteratif memerlukan ruang konstan vs. linear untuk rekursi
+3. **Performa Praktis**: Implementasi iteratif secara konsisten lebih cepat
+4. **Keterbatasan Skalabilitas**: Pendekatan rekursif mengalami stack overflow pada input besar
+5. **Gap Performa**: Speedup rata-rata menunjukkan keunggulan signifikan untuk iterasi
+
+### 6.3 Faktor Performa
+
+Algoritma iteratif menunjukkan performa superior karena:
+- **Overhead Function Call**: Panggilan rekursif memerlukan penyimpanan dan pemulihan konteks eksekusi
+- **Pola Akses Memori**: Iterasi sekuensial memiliki cache locality yang lebih baik
+- **Manajemen Stack**: Operasi call stack menambah latensi
+- **Optimasi Compiler**: Struktur loop lebih mudah dioptimasi
+
+---
+
+## 7. Konteks Aplikasi: Neural Networks
+
+Dalam Artificial Neural Network, operasi dot product adalah fundamental untuk aktivasi neuron:
+
+```
+z = Σ(x_i × w_i) = x · w
+```
 
 Di mana:
-- $x_i$ = nilai input ke-i
-- $w_i$ = bobot (weight) ke-i
-- $z$ = hasil dot product sebelum fungsi aktivasi
+- x_i = fitur input
+- w_i = bobot yang dipelajari
+- z = nilai pre-activation
 
-### Relevansi
+**Implikasi Praktis:**
+1. Model deep learning modern mengandung jutaan hingga miliaran parameter
+2. Training dan inference memerlukan miliaran komputasi dot product
+3. Pilihan algoritma berdampak langsung pada biaya komputasi
+4. Edge computing dan mobile deployment memerlukan implementasi yang efisien memori
 
-1. **Skala Besar**: Model Deep Learning modern memiliki jutaan parameter
-2. **Real-time Processing**: Aplikasi seperti autonomous driving membutuhkan perhitungan cepat
-3. **Resource Constraint**: Edge computing memiliki keterbatasan memori
+---
+
+## 8. Rekomendasi
+
+### 8.1 Pedoman Pemilihan Algoritma
+
+**Gunakan Pendekatan Iteratif:**
+- Memproses dataset besar
+- Terdapat keterbatasan memori
+- Performa maksimal diperlukan
+- Deployment production
+
+**Pertimbangkan Pendekatan Rekursif:**
+- Struktur masalah secara natural cocok untuk rekursi
+- Ukuran input dijamin kecil
+- Elegankode diprioritaskan
+- Tujuan edukatif atau demonstrasi
+
+### 8.2 Implementasi Production
+
+Untuk aplikasi real-world:
+1. Gunakan library teroptimasi (NumPy, BLAS, cuBLAS)
+2. Manfaatkan vektorisasi dan instruksi SIMD
+3. Pertimbangkan akselerasi hardware (GPU, TPU)
+4. Implementasikan error handling dan validasi yang proper
+
+---
+
+## 9. Referensi
+
+Anton, H., & Rorres, C. (2013). *Elementary linear algebra: Applications version* (1st ed.). Wiley.
+
+Cormen, T. H., Leiserson, C. E., Rivest, R. L., & Stein, C. (2009). *Introduction to algorithms* (3rd ed.). MIT Press.
+
+Goodfellow, I., Bengio, Y., & Courville, A. (2016). *Deep learning*. MIT Press.
+
+Levitin, A. (2011). *Introduction to the design and analysis of algorithms* (3rd ed.). Pearson.
+
+Munir, R. (2006). *Diktat strategi algoritmik IF2251*. Departemen Teknik Informatika, Institut Teknologi Bandung.
+
+Neapolitan, R., & Naimipour, K. (2014). *Foundations of algorithms* (5th ed.). Jones & Bartlett Learning.
+
+Nielsen, M. A. (2015). *Neural networks and deep learning*. Determination Press.
+
+Ummah, I., dkk. (2025). *Buku ajar: Analisis kompleksitas algoritma*. KBM.
 
 ---
 
